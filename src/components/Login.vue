@@ -13,42 +13,21 @@ export default {
     const vueform = ref({
       size: 'md',
       displayErrors: false,
-      addClass: 'vf-create-account',
+      addClass: 'vf-login-account',
       schema: {
         page_title: {
           type: 'static',
-          content: 'Create account',
+          content: 'Login',
           tag: 'h1',
         },
         divider: {
           type: 'static',
           tag: 'hr',
         },
-        name: {
-          type: 'text',
-          rules: [
-            'required',
-          ],
-          fieldName: 'name',
-          label: 'Full Name',
-          size: 'lg',
-        },
-        email: {
-          type: 'text',
-          inputType: 'email',
-          rules: [
-            'required',
-            'not_regex: ',
-            'email',
-          ],
-          fieldName: 'Email',
-          label: 'Email',
-          size: 'lg',
-        },
+        
         user_name: {
           type: 'text',
           label: 'UserName',
-          description: 'e.g : john_doe100',
           size: 'lg',
           rules: [
             'required',
@@ -65,24 +44,17 @@ export default {
           ],
           fieldName: 'Password',
           label: 'Password',
-          description: 'e.g : Pass@123',
           size: 'lg',
         },
-        terms: {
-          type: 'checkbox',
-          text: 'I accept the Terms & Conditions & Privacy Policy',
-          rules: [
-            'accepted',
-          ],
-        },
+     
         divider_1: {
           type: 'static',
           tag: 'hr',
         },
-        register: {
+        login: {
           type: 'button',
           submits: true,
-          buttonLabel: 'Create account',
+          buttonLabel: 'Log In',
           full: true,
           size: 'lg',
         },
@@ -117,10 +89,10 @@ form {
 }
 }
 
-.vf-create-account *,
-.vf-create-account *:before,
-.vf-create-account *:after,
-.vf-create-account:root {
+.vf-login-account *,
+.vf-login-account *:before,
+.vf-login-account *:after,
+.vf-login-account:root {
   --vf-primary: #007bff;
   --vf-primary-darker: #0056b3;
   --vf-color-on-primary: #ffffff;
