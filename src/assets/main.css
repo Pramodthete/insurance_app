@@ -1,0 +1,7 @@
+
+#app{
+    display: flex;
+    justify-content: center;
+    /* place-items: center; */
+    height: 97vh;
+  }
