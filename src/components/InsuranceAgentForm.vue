@@ -157,7 +157,7 @@ form {
   --vf-font-size-h4: 1.5rem;
   --vf-font-size-h4-sm: 1.5rem;
   --vf-font-size-h4-lg: 1.5rem;
-  --vf-font-size-h1-mobile: 25px;
+  --vf-font-size-h1-mobile: 1.6rem;
   --vf-font-size-h1-mobile-sm: 2.5rem;
   --vf-font-size-h1-mobile-lg: 2.5rem;
   --vf-font-size-h2-mobile: 2rem;

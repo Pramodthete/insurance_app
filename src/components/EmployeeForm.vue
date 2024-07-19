@@ -1,88 +1,91 @@
 <!-- CreateAccount.vue -->
 
-<script>
-import { ref } from 'vue'
-import { useVueform, Vueform } from '@vueform/vueform'
+<template>
+  <div>
+    {{ msg }}
+    <Vueform v-bind="vueform" />
+  </div>
+</template>
 
-export default {
-  mixins: [Vueform],
-  setup(props, context) {
-    const form = useVueform(props, context)
+<script setup>
+import { ref, defineProps, toRefs } from 'vue'
 
-    const vueform = ref({
-      size: 'md',
-      displayErrors: false,
-      addClass: 'vf-create-account',
-      schema: {
-        page_title: {
-          type: 'static',
-          content: 'Employee Registration',
-          tag: 'h1'
-        },
-        divider: {
-          type: 'static',
-          tag: 'hr'
-        },
-        name: {
-          type: 'text',
-          rules: ['required'],
-          fieldName: 'name',
-          label: 'Full Name',
-          size: 'lg'
-        },
-        email: {
-          type: 'text',
-          inputType: 'email',
-          rules: ['required', 'not_regex: ', 'email'],
-          fieldName: 'Email',
-          label: 'Email',
-          size: 'lg'
-        },
-        user_name: {
-          type: 'text',
-          label: 'UserName',
-          description: 'e.g : john_doe100',
-          size: 'lg',
-          rules: ['required', 'unique']
-        },
-        password: {
-          type: 'text',
-          inputType: 'password',
-          rules: [
-            'required',
-            'min:8',
-            'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
-          ],
-          fieldName: 'Password',
-          label: 'Password',
-          description: 'e.g : Pass@123',
-          size: 'lg'
-        },
-        terms: {
-          type: 'checkbox',
-          text: 'I accept the Terms & Conditions & Privacy Policy',
-          rules: ['accepted']
-        },
-        divider_1: {
-          type: 'static',
-          tag: 'hr'
-        },
-        register: {
-          type: 'button',
-          submits: true,
-          buttonLabel: 'Create account',
-          full: true,
-          size: 'lg'
-        }
-      }
-    })
+// Manually define props
+const props = defineProps({
+  msg: String
+})
 
-    return {
-      ...form,
-      vueform
+// Extract `msg` from props
+const { msg } = toRefs(props)
+
+// Use `useVueform` as a composable function
+const vueform = ref({
+  size: 'md',
+  displayErrors: false,
+  addClass: 'vf-create-account',
+  schema: {
+    page_title: {
+      type: 'static',
+      content: 'Employee Registration',
+      tag: 'h1'
+    },
+    divider: {
+      type: 'static',
+      tag: 'hr'
+    },
+    name: {
+      type: 'text',
+      rules: ['required'],
+      fieldName: 'name',
+      label: 'Full Name',
+      size: 'lg'
+    },
+    email: {
+      type: 'text',
+      inputType: 'email',
+      rules: ['required', 'not_regex: ', 'email'],
+      fieldName: 'Email',
+      label: 'Email',
+      size: 'lg'
+    },
+    user_name: {
+      type: 'text',
+      label: 'UserName',
+      description: 'e.g : john_doe100',
+      size: 'lg',
+      rules: ['required']
+    },
+    password: {
+      type: 'text',
+      inputType: 'password',
+      rules: [
+        'required',
+        'min:8',
+        'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
+      ],
+      fieldName: 'Password',
+      label: 'Password',
+      description: 'e.g : Pass@123',
+      size: 'lg'
+    },
+    terms: {
+      type: 'checkbox',
+      text: 'I accept the Terms & Conditions & Privacy Policy',
+      rules: ['accepted']
+    },
+    divider_1: {
+      type: 'static',
+      tag: 'hr'
+    },
+    register: {
+      type: 'button',
+      submits: true,
+      buttonLabel: 'Create account',
+      full: true,
+      size: 'lg'
     }
   }
-}
+})
 </script>
 
 <style>
@@ -157,7 +160,7 @@ form {
   --vf-font-size-h4: 1.5rem;
   --vf-font-size-h4-sm: 1.5rem;
   --vf-font-size-h4-lg: 1.5rem;
-  --vf-font-size-h1-mobile: 25px;
+  --vf-font-size-h1-mobile: 1.7rem;
   --vf-font-size-h1-mobile-sm: 2.5rem;
   --vf-font-size-h1-mobile-lg: 2.5rem;
   --vf-font-size-h2-mobile: 2rem;

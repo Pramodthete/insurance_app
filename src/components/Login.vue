@@ -1,13 +1,11 @@
-<!-- CreateAccount.vue -->
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <script>
 import { ref } from 'vue'
 import { useVueform, Vueform } from '@vueform/vueform'
 
 export default {
   mixins: [Vueform],
-  setup(props, context)
-  {
+  setup(props, context) {
     const form = useVueform(props, context)
 
     const vueform = ref({
@@ -18,21 +16,18 @@ export default {
         page_title: {
           type: 'static',
           content: 'Login',
-          tag: 'h1',
+          tag: 'h1'
         },
         divider: {
           type: 'static',
-          tag: 'hr',
+          tag: 'hr'
         },
-        
+
         user_name: {
           type: 'text',
           label: 'UserName',
           size: 'lg',
-          rules: [
-            'required',
-            
-          ],
+          rules: ['required']
         },
         password: {
           type: 'text',
@@ -40,37 +35,36 @@ export default {
           rules: [
             'required',
             'min:8',
-            'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$',
+            'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
           ],
           fieldName: 'Password',
           label: 'Password',
-          size: 'lg',
+          size: 'lg'
         },
-     
+
         divider_1: {
           type: 'static',
-          tag: 'hr',
+          tag: 'hr'
         },
         login: {
           type: 'button',
           submits: true,
           buttonLabel: 'Log In',
           full: true,
-          size: 'lg',
-        },
-      },
+          size: 'lg'
+        }
+      }
     })
 
     return {
       ...form,
-      vueform,
+      vueform
     }
   }
 }
 </script>
 
 <style>
-
 form {
   padding: 2%;
   border: 1px solid gray;
@@ -81,12 +75,12 @@ form {
   position: relative;
   margin-top: 2%;
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   form {
-  border: none;
-  width: 100%;
-  box-shadow: none;
-}
+    border: none;
+    width: 100%;
+    box-shadow: none;
+  }
 }
 
 .vf-login-account *,
@@ -142,7 +136,7 @@ form {
   --vf-font-size-h4: 1.5rem;
   --vf-font-size-h4-sm: 1.5rem;
   --vf-font-size-h4-lg: 1.5rem;
-  --vf-font-size-h1-mobile: 2.5rem;
+  --vf-font-size-h1-mobile: 1.9rem;
   --vf-font-size-h1-mobile-sm: 2.5rem;
   --vf-font-size-h1-mobile-lg: 2.5rem;
   --vf-font-size-h2-mobile: 2rem;
@@ -335,11 +329,11 @@ form {
   --vf-shadow-input: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-input-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-input-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  --vf-shadow-handles: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-handles: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-shadow-handles-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-handles-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   --vf-shadow-btn: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
-  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-radius-input: 0.25rem;
   --vf-radius-input-sm: 0.2rem;
   --vf-radius-input-lg: 0.3rem;
@@ -397,4 +391,3 @@ form {
   --vf-border-width-blockquote: 3px;
 }
 </style>
-
