@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import RegisterForm from '@/components/EmployeeForm.vue'
+import InsuranceAgentForm from '@/components/InsuranceAgentForm.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,9 +11,14 @@ const router = createRouter({
       component: RegisterForm
     },
     {
-      path: '/register',
-      name: 'register',
+      path: '/registerEmployee',
+      name: 'employee-form',
       component: RegisterForm
+    },
+    {
+      path: '/registerInsuranceAgent',
+      name: 'agent-form',
+      component: InsuranceAgentForm
     }
   ]
 })
