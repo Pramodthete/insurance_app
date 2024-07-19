@@ -12,11 +12,11 @@ export default {
     const vueform = ref({
       size: 'md',
       displayErrors: false,
-      addClass: 'vf-create-account',
+      addClass: 'vf-agent-account',
       schema: {
         page_title: {
           type: 'static',
-          content: 'Employee Registration',
+          content: 'Insurance Agent Registration',
           tag: 'h1'
         },
         divider: {
@@ -104,10 +104,10 @@ form {
   }
 }
 
-.vf-create-account *,
-.vf-create-account *:before,
-.vf-create-account *:after,
-.vf-create-account:root {
+.vf-agent-account *,
+.vf-agent-account *:before,
+.vf-agent-account *:after,
+.vf-agent-account:root {
   --vf-primary: #007bff;
   --vf-primary-darker: #0056b3;
   --vf-color-on-primary: #ffffff;
