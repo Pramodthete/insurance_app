@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 
 // Manually define props
 const props = defineProps({

@@ -1,67 +1,67 @@
 <!-- eslint-disable vue/multi-word-component-names -->
-<script>
-import { ref } from 'vue'
-import { useVueform, Vueform } from '@vueform/vueform'
+<template>
+  <div>
+    {{ msgLogin }}
+    <Vueform v-bind="vueform" />
+  </div>
+</template>
+<script setup>
+import { ref, toRefs } from 'vue'
 
-export default {
-  mixins: [Vueform],
-  setup(props, context) {
-    const form = useVueform(props, context)
+// Manually define props
+const props = defineProps({
+  msgLogin: String
+})
 
-    const vueform = ref({
-      size: 'md',
-      displayErrors: false,
-      addClass: 'vf-login-account',
-      schema: {
-        page_title: {
-          type: 'static',
-          content: 'Login',
-          tag: 'h1'
-        },
-        divider: {
-          type: 'static',
-          tag: 'hr'
-        },
+// Extract `msg` from props
+const { msgLogin } = toRefs(props)
+const vueform = ref({
+  size: 'md',
+  displayErrors: false,
+  addClass: 'vf-login-account',
+  schema: {
+    page_title: {
+      type: 'static',
+      content: 'Login',
+      tag: 'h1'
+    },
+    divider: {
+      type: 'static',
+      tag: 'hr'
+    },
 
-        user_name: {
-          type: 'text',
-          label: 'UserName',
-          size: 'lg',
-          rules: ['required']
-        },
-        password: {
-          type: 'text',
-          inputType: 'password',
-          rules: [
-            'required',
-            'min:8',
-            'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
-          ],
-          fieldName: 'Password',
-          label: 'Password',
-          size: 'lg'
-        },
+    user_name: {
+      type: 'text',
+      label: 'UserName',
+      size: 'lg',
+      rules: ['required']
+    },
+    password: {
+      type: 'text',
+      inputType: 'password',
+      rules: [
+        'required',
+        'min:8',
+        'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
+      ],
+      fieldName: 'Password',
+      label: 'Password',
+      size: 'lg'
+    },
 
-        divider_1: {
-          type: 'static',
-          tag: 'hr'
-        },
-        login: {
-          type: 'button',
-          submits: true,
-          buttonLabel: 'Log In',
-          full: true,
-          size: 'lg'
-        }
-      }
-    })
-
-    return {
-      ...form,
-      vueform
+    divider_1: {
+      type: 'static',
+      tag: 'hr'
+    },
+    login: {
+      type: 'button',
+      submits: true,
+      buttonLabel: 'Log In',
+      full: true,
+      size: 'lg'
     }
   }
-}
+})
 </script>
 
 <style>
