@@ -1,14 +1,20 @@
-<!-- CreateAccount.vue -->
 
-<script>
-import { ref } from 'vue'
-import { useVueform, Vueform } from '@vueform/vueform'
+<template>
+  <div>
+    {{ msgCustomer }}
+    <Vueform v-bind="vueform" />
+  </div>
+</template>
 
-export default {
-  mixins: [Vueform],
-  setup(props, context)
-  {
-    const form = useVueform(props, context)
+
+<script setup>
+import { ref, defineProps, toRefs } from 'vue'
+
+const props = defineProps({
+  msgCustomer: String
+})
+
+const { msgCustomer } = toRefs(props)
 
     const vueform = ref({
       size: 'md',
@@ -95,14 +101,7 @@ export default {
           size: 'lg',
         },
       },
-    })
-
-    return {
-      ...form,
-      vueform,
-    }
-  }
-}
+    })  
 </script>
 
 <style>

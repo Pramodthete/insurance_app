@@ -41,7 +41,6 @@ export default {
         user_name: {
           type: 'text',
           label: 'UserName',
-          description: 'e.g : john_doe100',
           size: 'lg',
           rules: ['required', 'unique']
         },
@@ -55,7 +54,6 @@ export default {
           ],
           fieldName: 'Password',
           label: 'Password',
-          description: 'e.g : Pass@123',
           size: 'lg'
         },
         terms: {

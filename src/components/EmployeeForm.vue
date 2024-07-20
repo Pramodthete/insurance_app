@@ -51,7 +51,6 @@ const vueform = ref({
     user_name: {
       type: 'text',
       label: 'UserName',
-      description: 'e.g : john_doe100',
       size: 'lg',
       rules: ['required']
     },
@@ -65,7 +64,6 @@ const vueform = ref({
       ],
       fieldName: 'Password',
       label: 'Password',
-      description: 'e.g : Pass@123',
       size: 'lg'
     },
     terms: {
