@@ -64,7 +64,7 @@ const vueform = ref({
 })
 </script>
 
-<style>
+<style scoped>
 form {
   padding: 2%;
   border: 1px solid gray;
@@ -75,7 +75,7 @@ form {
   position: relative;
   margin-top: 2%;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   form {
     border: none;
     width: 100%;
