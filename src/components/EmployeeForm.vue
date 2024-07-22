@@ -1,7 +1,7 @@
 <!-- CreateAccount.vue -->
 
 <template>
-  <div>
+  <div class="d-flex justify-content-center align-items-center h-100">
     {{ msg }}
     <Vueform v-bind="vueform" />
   </div>

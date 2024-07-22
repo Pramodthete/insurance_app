@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div>
+  <div class="d-flex justify-content-center align-items-center h-100">
     {{ msgLogin }}
     <Vueform v-bind="vueform" />
   </div>
