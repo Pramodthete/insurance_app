@@ -3,7 +3,7 @@ import RegisterForm from '@/components/EmployeeForm.vue'
 import InsuranceAgentForm from '@/components/InsuranceAgentForm.vue'
 import Login from '@/components/Login.vue'
 import CustomerForm from '@/components/CustomerForm.vue'
-
+import AllCustomers from '@/components/AllCustomers.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -27,7 +27,11 @@ const router = createRouter({
       name: 'agent-form',
       component: InsuranceAgentForm
     },
-
+    {
+      path: '/showCustomers',
+      name: 'showCustomers',
+      component: AllCustomers
+    },
     {
       path: '/customer',
       name: 'customer',
