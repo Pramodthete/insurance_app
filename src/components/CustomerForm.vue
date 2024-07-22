@@ -1,4 +1,3 @@
-
 <template>
   <div>
     {{ msgCustomer }}
@@ -6,9 +5,8 @@
   </div>
 </template>
 
-
 <script setup>
-import { ref, defineProps, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 
 const props = defineProps({
   msgCustomer: String
@@ -16,96 +14,91 @@ const props = defineProps({
 
 const { msgCustomer } = toRefs(props)
 
-    const vueform = ref({
-      size: 'md',
-      displayErrors: false,
-      addClass: 'vf-customer-registration',
-      schema: {
-        page_title: {
-          type: 'static',
-          content: 'Customer Registration',
-          tag: 'h1',
-        },
-        divider: {
-          type: 'static',
-          tag: 'hr',
-        },
-        name: {
-          type: 'text',
-          rules: [
-            'required',
-          ],
-          fieldName: 'name',
-          label: 'Full Name',
-          size: 'lg',
-        },
-        email: {
-          type: 'text',
-          inputType: 'email',
-          rules: [
-            'required',
-            'not_regex: ',
-            'email',
-          ],
-          fieldName: 'Email',
-          label: 'Email',
-          size: 'lg',
-        },
-        phone: {
-          type: 'phone',
-          label: 'Phone',
-          allowIncomplete: true,
-          unmask: true,
-        },
+const vueform = ref({
+  size: 'md',
+  displayErrors: false,
+  addClass: 'vf-customer-registration',
+  schema: {
+    page_title: {
+      type: 'static',
+      content: 'Customer Registration',
+      tag: 'h1'
+    },
+    divider: {
+      type: 'static',
+      tag: 'hr'
+    },
+    name: {
+      type: 'text',
+      rules: ['required'],
+      fieldName: 'name',
+      label: 'Full Name',
+      size: 'lg'
+    },
+    email: {
+      type: 'text',
+      inputType: 'email',
+      rules: ['required', 'not_regex: ', 'email'],
+      fieldName: 'Email',
+      label: 'Email',
+      size: 'lg'
+    },
+    phone: {
+      type: 'phone',
+      label: 'Phone',
+      allowIncomplete: true,
+      unmask: true
+    },
 
-        date: {
-          type: 'date',
-          label: 'Date of Birth',
-          rules: [
-            'required',
-            'before_or_equal:today',
-          ]
-        },
+    date: {
+      type: 'date',
+      label: 'Date of Birth',
+      rules: ['required', 'before_or_equal:today']
+    },
 
-        select: {
-          type: 'select',
-          items: [
-            {
-              value: 0,
-              label: 'Agent 1',
-            },
-          ],
-          search: true,
-          native: false,
-          label: 'Agent Id',
-          inputType: 'search',
-          autocomplete: 'off',
-        },
+    select: {
+      type: 'select',
+      items: [
+        {
+          value: 0,
+          label: 'Agent 1'
+        }
+      ],
+      search: true,
+      native: false,
+      label: 'Agent Id',
+      inputType: 'search',
+      autocomplete: 'off'
+    },
 
-        terms: {
-          type: 'checkbox',
-          text: 'I accept the Terms & Conditions & Privacy Policy',
-          rules: [
-            'accepted',
-          ],
-        },
-        divider_1: {
-          type: 'static',
-          tag: 'hr',
-        },
-        register: {
-          type: 'button',
-          submits: true,
-          buttonLabel: 'Create Account',
-          full: true,
-          size: 'lg',
-        },
-      },
-    })  
+    terms: {
+      type: 'checkbox',
+      text: 'I accept the Terms & Conditions & Privacy Policy',
+      rules: ['accepted']
+    },
+    divider_1: {
+      type: 'static',
+      tag: 'hr'
+    },
+    register: {
+      type: 'button',
+      submits: true,
+      buttonLabel: 'Create Account',
+      full: true,
+      size: 'lg'
+    }
+  }
+})
 </script>
 
-<style>
-
+<style scoped>
+#app {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  width: 100vw;
+  height: 97vh;
+}
 form {
   padding: 2%;
   border: 1px solid gray;
@@ -115,12 +108,12 @@ form {
   box-shadow: 0px 1px 8px 1px gray;
   margin-top: 2%;
 }
-@media screen and (max-width:500px) {
+@media screen and (max-width: 600px) {
   form {
-  border: none;
-  width: 100%;
-  box-shadow: none;
-}
+    border: none;
+    width: 100%;
+    box-shadow: none;
+  }
 }
 
 .vf-customer-registration *,
@@ -369,11 +362,11 @@ form {
   --vf-shadow-input: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-input-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-input-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  --vf-shadow-handles: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-handles: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-shadow-handles-hover: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   --vf-shadow-handles-focus: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   --vf-shadow-btn: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
-  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0,0,0,0);
+  --vf-shadow-dropdown: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --vf-radius-input: 0.25rem;
   --vf-radius-input-sm: 0.2rem;
   --vf-radius-input-lg: 0.3rem;
@@ -431,4 +424,3 @@ form {
   --vf-border-width-blockquote: 3px;
 }
 </style>
-

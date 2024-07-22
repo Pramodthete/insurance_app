@@ -1,7 +1,16 @@
+#app {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  width: 100vw;
+  height: 97vh;
+}
 
-#app{
-    display: flex;
-    justify-content: center;
-    /* place-items: center; */
-    height: 97vh;
+@media screen and (max-width: 921px) {
+  #app {
+    display: unset;
+    justify-content: unset;
+    place-items: unset;
+    width: fit-content;
   }
+}
