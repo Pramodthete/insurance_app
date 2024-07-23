@@ -2,8 +2,8 @@
   /* display: flex;
   justify-content: center;
   place-items: center;*/
-  width: 100vw;
-  height: 97vh;
+  /* width: 100vw;
+  height: 97vh; */
 }
 
 @media screen and (max-width: 921px) {
