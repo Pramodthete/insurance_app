@@ -81,4 +81,5 @@ const items = ref([
 .fixed-width {
   width: 300px;
 }
+
 </style>
