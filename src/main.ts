@@ -15,7 +15,10 @@ app.use(createPinia())
 app.use(Vueform, vueformConfig)
 app.use(PrimeVue, {
   theme: {
-    preset: Aura
+    preset: Aura,
+    options: {
+      darkModeSelector: '.my-app-dark'
+    }
   }
 })
 
