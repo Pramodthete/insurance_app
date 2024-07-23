@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import Card from 'primevue/card'
-import InputText from 'primevue/inputtext'
-import Button from 'primevue/button'
+import Footer from './Footer.vue';
 
 const items = ref([
   { title: 'Scheme 1' },
@@ -76,6 +74,7 @@ const items = ref([
       </div>
     </div>
   </div>
+  <Footer/>
 </template>
 
 <style scoped>
