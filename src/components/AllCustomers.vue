@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import Footer from './Footer.vue'
 
 const products = ref([
   {
@@ -166,6 +167,7 @@ const getSeverity = (product) => {
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 
 <style scoped>

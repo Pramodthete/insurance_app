@@ -2,7 +2,6 @@
 
 <script setup>
 import { ref } from 'vue'
-const checked = ref(false)
 const items = ref([
   {
     label: 'Home',
@@ -144,12 +143,6 @@ const toggleSet = (event) => {
           </div>
 
           <div>
-            <!-- <Avatar
-              size="large"
-              image="https://primefaces.org/cdn/primevue/images/avatar/amyelsner.png"
-              shape="circle"
-            /> -->
-
             <div class="flex justify-center">
               <Avatar
                 aria-haspopup="true"

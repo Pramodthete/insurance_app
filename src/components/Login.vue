@@ -1,14 +1,20 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div class="d-flex justify-content-center align-items-center h-100">
+  <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
     {{ msgLogin }}
     <Vueform v-bind="vueform" />
+    <div>
+      <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br />
+      <GoogleLogin :callback="callback" />
+    </div>
   </div>
 </template>
 <script setup>
 import { ref, toRefs } from 'vue'
 
-// Manually define props
+const callback = (response) => {
+  console.log('Handle the response', response)
+}
 const props = defineProps({
   msgLogin: String
 })
@@ -48,6 +54,35 @@ const vueform = ref({
       label: 'Password',
       size: 'lg'
     },
+    role: {
+      type: 'select',
+      items: [
+        {
+          value: '1',
+          label: 'Admin'
+        },
+        {
+          value: '2',
+          label: 'Employee'
+        },
+        {
+          value: '3',
+          label: 'Insurance Agent'
+        },
+        {
+          value: '4',
+          label: 'Customer'
+        }
+      ],
+      search: true,
+      native: false,
+      label: 'Role',
+      inputType: 'search',
+      autocomplete: 'off',
+      size: 'lg',
+      limit: 4,
+      default: '4'
+    },
 
     divider_1: {
       type: 'static',
@@ -67,19 +102,25 @@ const vueform = ref({
 <style scoped>
 form {
   padding: 2%;
-  border: 1px solid gray;
-  width: 600px;
+  /* border: 1px solid gray; */
+  width: 500px;
   height: fit-content;
-  border-radius: 15px;
-  box-shadow: 0px 1px 8px 1px gray;
+  /* border-radius: 15px; */
+  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
+}
+#agent-img {
+  width: 600px;
 }
 @media screen and (max-width: 600px) {
   form {
     border: none;
     width: 100%;
     box-shadow: none;
+  }
+  #agent-img {
+    width: 100%;
   }
 }
 

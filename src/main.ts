@@ -9,6 +9,7 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import 'primeicons/primeicons.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import vue3GoogleLogin from 'vue3-google-login'
 
 const app = createApp(App)
 app.use(createPinia())
@@ -20,6 +21,9 @@ app.use(PrimeVue, {
       darkModeSelector: '.my-app-dark'
     }
   }
+})
+app.use(vue3GoogleLogin, {
+  clientId: '1074755295681-700r0r1t5rc5k50l99ld5cqucv5l6ib6.apps.googleusercontent.com'
 })
 
 app.use(router)
