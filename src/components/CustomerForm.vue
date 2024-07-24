@@ -2,6 +2,13 @@
   <div class="d-flex justify-content-center align-items-center h-100">
     {{ msgCustomer }}
     <Vueform v-bind="vueform" />
+    <div style="height: 100%; width: 50%; object-fit: cover">
+      <img
+        style="width: 70%"
+        src="/src/assets/undraw_fun_moments_2vha.svg"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 
@@ -33,7 +40,6 @@ const vueform = ref({
       rules: ['required'],
       fieldName: 'name',
       label: 'Full Name',
-      size: 'lg'
     },
     email: {
       type: 'text',
@@ -41,7 +47,6 @@ const vueform = ref({
       rules: ['required', 'not_regex: ', 'email'],
       fieldName: 'Email',
       label: 'Email',
-      size: 'lg'
     },
     phone: {
       type: 'phone',
@@ -92,20 +97,13 @@ const vueform = ref({
 </script>
 
 <style scoped>
-#app {
-  display: flex;
-  justify-content: center;
-  place-items: center;
-  width: 100vw;
-  height: 97vh;
-}
 form {
   padding: 2%;
-  border: 1px solid gray;
+  /* border: 1px solid gray; */
   width: 600px;
   height: fit-content;
-  border-radius: 15px;
-  box-shadow: 0px 1px 8px 1px gray;
+  /* border-radius: 15px; */
+  /* box-shadow: 0px 1px 8px 1px gray; */
   margin-top: 2%;
 }
 @media screen and (max-width: 600px) {
@@ -343,7 +341,7 @@ form {
   --vf-border-color-blockquote: var(--vf-gray-400);
   --vf-border-color-hr: var(--vf-gray-600);
   --vf-border-color-signature-hr: var(--vf-gray-600);
-  --vf-border-width-input-t: 1px;
+  --vf-border-width-input-t: 0px;
   --vf-border-width-input-r: 1px;
   --vf-border-width-input-b: 1px;
   --vf-border-width-input-l: 1px;
