@@ -10,10 +10,17 @@
   </div>
 </template>
 <script setup>
+import router from '@/router'
 import { ref, toRefs } from 'vue'
+import VueJwtDecode from 'vue-jwt-decode'
 
 const callback = (response) => {
   console.log('Handle the response', response)
+  const data = VueJwtDecode.decode(response.credential)
+  console.log('Data: ', data)
+  if (data) {
+    router.push('/')
+  }
 }
 const props = defineProps({
   msgLogin: String
