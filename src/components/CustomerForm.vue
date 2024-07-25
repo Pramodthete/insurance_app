@@ -52,13 +52,15 @@ const vueform = ref({
       type: 'phone',
       label: 'Phone',
       allowIncomplete: true,
-      unmask: true
+      unmask: true,
+      size: 'lg'
     },
 
     date: {
       type: 'date',
       label: 'Date of Birth',
-      rules: ['required', 'before_or_equal:today']
+      rules: ['required', 'before_or_equal:today'],
+      size: 'lg'
     },
 
     select: {
@@ -69,6 +71,7 @@ const vueform = ref({
           label: 'Agent 1'
         }
       ],
+      size: 'lg',
       search: true,
       native: false,
       label: 'Agent Id',

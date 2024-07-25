@@ -1,5 +1,6 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <section class="p-4">
+  <section>
     <footer class="text-center text-lg-start bg-body-tertiary text-muted">
       <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
@@ -34,9 +35,7 @@
         <div class="container text-center text-md-start mt-5">
           <div class="row mt-3">
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 class="text-uppercase fw-bold mb-4">
-                <i class=""></i>Insurance Company
-              </h6>
+              <h6 class="text-uppercase fw-bold mb-4"><i class=""></i>Insurance Company</h6>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
 

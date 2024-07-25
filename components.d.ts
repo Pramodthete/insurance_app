@@ -29,7 +29,6 @@ declare module 'vue' {
     Login: typeof import('./src/components/Login.vue')['default']
     Menu: typeof import('primevue/menu')['default']
     Menubar: typeof import('primevue/menubar')['default']
-    Rating: typeof import('primevue/rating')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Schemes: typeof import('./src/components/Schemes.vue')['default']

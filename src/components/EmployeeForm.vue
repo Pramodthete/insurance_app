@@ -1,8 +1,11 @@
 <!-- CreateAccount.vue -->
 
 <template>
-  <div class="d-flex justify-content-center align-items-center h-100">
+  <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
     {{ msg }}
+    <div>
+      <img id="emp-img" src="./../assets/employee.svg" alt="My Happy SVG" />
+    </div>
     <Vueform v-bind="vueform" />
   </div>
 </template>
@@ -26,12 +29,8 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      content: 'Employee Registration',
+      content: 'Employee Registration<br><br>',
       tag: 'h1'
-    },
-    divider: {
-      type: 'static',
-      tag: 'hr'
     },
     name: {
       type: 'text',
@@ -71,10 +70,6 @@ const vueform = ref({
       text: 'I accept the Terms & Conditions & Privacy Policy',
       rules: ['accepted']
     },
-    divider_1: {
-      type: 'static',
-      tag: 'hr'
-    },
     register: {
       type: 'button',
       submits: true,
@@ -87,20 +82,23 @@ const vueform = ref({
 </script>
 
 <style scoped>
-#app {
+#emp-img {
+  width: 500px;
+}
+/* #app {
   display: flex;
   justify-content: center;
   place-items: center;
   width: 100vw;
-  height: 97vh;
-}
+  height: 100vh !important;
+} */
 form {
   padding: 2%;
-  border: 1px solid gray;
-  width: 600px;
+  /* border: 1px solid gray; */
+  width: 500px;
   height: fit-content;
-  border-radius: 15px;
-  box-shadow: 0px 1px 8px 1px gray;
+  /* border-radius: 15px; */
+  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
 }
@@ -109,6 +107,9 @@ form {
     border: none;
     width: 100%;
     box-shadow: none;
+  }
+  #emp-img {
+    width: 100%;
   }
 }
 

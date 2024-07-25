@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { ref } from 'vue'
-import Footer from './Footer.vue';
+import Footer from './Footer.vue'
 
 const items = ref([
   { title: 'Scheme 1' },
@@ -16,8 +16,8 @@ const items = ref([
 </script>
 
 <template>
-  <div class="container" style="width: 100%">
-    <div class="p-4">
+  <div style="width: 100%">
+    <div class="p-2">
       <div class="text-center mb-4">
         <h1 class="text-primary p-3">
           Shield insurance makes sure <br />
@@ -32,19 +32,13 @@ const items = ref([
 
       <div class="d-flex justify-content-center align-items-center mb-4">
         <InputGroup class="w-50">
-          <InputText placeholder="I'm looking for.." v-model="value3" type="text" size="medium" />
-          <Button
-            type="button"
-            label="Search"
-            icon="pi pi-search"
-            :loading="loading"
-            @click="load"
-          />
+          <InputText placeholder="I'm looking for.." type="text" size="large" />
+          <Button type="button" label="Search" icon="pi pi-search" />
         </InputGroup>
       </div>
 
-      <div class="d-flex flex-wrap justify-content-center w-100">
-        <div v-for="(item, index) in items" :key="index" class="m-2 fixed-width bg-warning">
+      <div class="d-flex flex-wrap justify-content-evenly pt-5">
+        <div v-for="(item, index) in items" :key="index" class="m-0 fixed-width bg-warning mb-3">
           <Card class="bg-secondary text-light">
             <template #title>{{ item.title }}</template>
             <template #content>
@@ -83,7 +77,7 @@ const items = ref([
       </div>
     </div>
   </div>
-  <Footer/>
+  <Footer />
 </template>
 
 <style scoped>
@@ -107,5 +101,4 @@ const items = ref([
     width: 100%;
   }
 }
-
 </style>

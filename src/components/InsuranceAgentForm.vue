@@ -1,8 +1,11 @@
 <!-- CreateAccount.vue -->
 <template>
-  <div class="d-flex justify-content-center align-items-center h-100">
+  <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center h-100">
     {{ msgAgent }}
-    <Vueform v-bind="vueform" />
+    <Vueform endpoint="/agent-form/submit" method="post" v-bind="vueform" />
+    <div>
+      <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" />
+    </div>
   </div>
 </template>
 <script setup>
@@ -22,12 +25,8 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      content: 'Insurance Agent Registration',
-      tag: 'h1'
-    },
-    divider: {
-      type: 'static',
-      tag: 'hr'
+      content: 'Insurance Agent <br><br> Registration<br><br>',
+      tag: 'h2'
     },
     name: {
       type: 'text',
@@ -47,9 +46,8 @@ const vueform = ref({
     user_name: {
       type: 'text',
       label: 'UserName',
-      description: 'e.g : john_doe100',
       size: 'lg',
-      rules: ['required', 'unique']
+      rules: ['required']
     },
     password: {
       type: 'text',
@@ -61,17 +59,12 @@ const vueform = ref({
       ],
       fieldName: 'Password',
       label: 'Password',
-      description: 'e.g : Pass@123',
       size: 'lg'
     },
     terms: {
       type: 'checkbox',
       text: 'I accept the Terms & Conditions & Privacy Policy',
       rules: ['accepted']
-    },
-    divider_1: {
-      type: 'static',
-      tag: 'hr'
     },
     register: {
       type: 'button',
@@ -85,28 +78,27 @@ const vueform = ref({
 </script>
 
 <style scoped>
-#app {
-  display: flex;
-  justify-content: center;
-  place-items: center;
-  width: 100vw;
-  height: 97vh;
-}
 form {
   padding: 2%;
-  border: 1px solid gray;
-  width: 600px;
+  /* border: 1px solid gray; */
+  width: 400px;
   height: fit-content;
-  border-radius: 15px;
-  box-shadow: 0px 1px 8px 1px gray;
+  /* border-radius: 15px; */
+  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
+}
+#agent-img {
+  width: 600px;
 }
 @media screen and (max-width: 600px) {
   form {
     border: none;
     width: 100%;
     box-shadow: none;
+  }
+  #agent-img {
+    width: 100%;
   }
 }
 
@@ -154,7 +146,7 @@ form {
   --vf-font-size-h1: 40px;
   --vf-font-size-h1-sm: 2.5rem;
   --vf-font-size-h1-lg: 2.5rem;
-  --vf-font-size-h2: 2rem;
+  --vf-font-size-h2: 1.9rem;
   --vf-font-size-h2-sm: 2rem;
   --vf-font-size-h2-lg: 2rem;
   --vf-font-size-h3: 1.75rem;
@@ -166,7 +158,7 @@ form {
   --vf-font-size-h1-mobile: 1.6rem;
   --vf-font-size-h1-mobile-sm: 2.5rem;
   --vf-font-size-h1-mobile-lg: 2.5rem;
-  --vf-font-size-h2-mobile: 2rem;
+  --vf-font-size-h2-mobile: 1.7rem;
   --vf-font-size-h2-mobile-sm: 2rem;
   --vf-font-size-h2-mobile-lg: 2rem;
   --vf-font-size-h3-mobile: 1.75rem;
