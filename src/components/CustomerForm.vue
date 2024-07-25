@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center align-items-center h-100">
     {{ msgCustomer }}
     <Vueform v-bind="vueform" />
-    <div style="height: 100%; width: 50%; object-fit: cover">
+    <div class="h-100 w-50 object-fit-cover">
       <img
         style="width: 70%"
         src="/src/assets/undraw_fun_moments_2vha.svg"
@@ -99,11 +99,8 @@ const vueform = ref({
 <style scoped>
 form {
   padding: 2%;
-  /* border: 1px solid gray; */
   width: 600px;
   height: fit-content;
-  /* border-radius: 15px; */
-  /* box-shadow: 0px 1px 8px 1px gray; */
   margin-top: 2%;
 }
 @media screen and (max-width: 600px) {
