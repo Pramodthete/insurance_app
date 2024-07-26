@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
     {{ msgLogin }}
@@ -9,6 +10,7 @@
         <v-facebook-login app-id="966242223397117" class="no-border fb"></v-facebook-login>
       </div>
     </div>
+    <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
     <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
   </div>
 </template>
@@ -112,6 +114,15 @@ const vueform = ref({
 </script>
 
 <style scoped>
+.fb-button {
+  display: inline-block;
+  margin: 10px 0 10 0;
+  color: white;
+  background-color: #1967d2;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
 form {
   padding: 2%;
   width: 500px;
@@ -130,8 +141,11 @@ form {
     box-shadow: none;
   }
   #agent-img {
-    width: 100%;
+    display: none;
   }
+}
+.fb-button[data-v-47199182] {
+  padding: 9px !important;
 }
 
 .vf-login-account *,
