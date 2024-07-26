@@ -84,7 +84,7 @@ const getSeverity = (product) => {
 
 <template>
   <div>
-    <div class="card border-0 p-2 my-1">
+    <div class="card border-0 my-1 bg-warning">
       <Toolbar class="mb-6 w-100">
         <template #start>
           <Button label="New" outlined icon="pi pi-plus" severity="success" />
@@ -111,8 +111,7 @@ const getSeverity = (product) => {
               </InputGroup>
             </div>
           </template>
-          <div class="fix-width overflow-x-hidden">
-            <Column selectionMode="multiple"></Column>
+          <div class="fix-width overflow-x-hidden ps-2">
             <Column field="code" header="Customer Id" sortable></Column>
             <Column field="name" header="Full Name" sortable></Column>
             <!-- <Column  header="Image">

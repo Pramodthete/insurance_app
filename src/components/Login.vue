@@ -2,17 +2,31 @@
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
     {{ msgLogin }}
-    <Vueform v-bind="vueform" />
     <div>
-      <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br />
-      <GoogleLogin :callback="callback" />
+      <Vueform v-bind="vueform" />
+      <div class="text-center">or</div>
+      <div class="d-flex justify-content-evenly gap-2 m-1 pt-3">
+        <GoogleLogin :callback="callback" />
+        <HFaceBookLogin
+          v-slot="fbLogin"
+          app-id="391069538168549"
+          @onSuccess="onSuccess"
+          @onFailure="onFailure"
+          scope="email,public_profile"
+          fields="id,name,email,first_name,last_name,birthday"
+        >
+          <span @click="fbLogin.initFBLogin" class="fb-button">Login with facebook</span>
+        </HFaceBookLogin>
+      </div>
     </div>
+    <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
   </div>
 </template>
 <script setup>
 import router from '@/router'
 import { ref, toRefs } from 'vue'
 import VueJwtDecode from 'vue-jwt-decode'
+import { HFaceBookLogin } from '@healerlab/vue3-facebook-login'
 
 const callback = (response) => {
   console.log('Handle the response', response)
@@ -21,6 +35,15 @@ const callback = (response) => {
   if (data) {
     router.push('/')
   }
+}
+const onSuccess = (response) => {
+  // get your auth token and info
+  console.log(response)
+}
+
+const onFailure = () => {
+  // logic if auth failed
+  console.log('In failure>>>>>>>>>')
 }
 const props = defineProps({
   msgLogin: String
@@ -107,6 +130,15 @@ const vueform = ref({
 </script>
 
 <style scoped>
+.fb-button {
+  display: inline-block;
+  margin: 10px 0 10 0;
+  color: white;
+  background-color: #1967d2;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
 form {
   padding: 2%;
   /* border: 1px solid gray; */
@@ -127,8 +159,11 @@ form {
     box-shadow: none;
   }
   #agent-img {
-    width: 100%;
+    display: none;
   }
+}
+.fb-button[data-v-47199182] {
+  padding: 9px !important;
 }
 
 .vf-login-account *,

@@ -14,6 +14,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@healerlab/vue3-facebook-login": "^0.1.7",
     "@primevue/themes": "^4.0.0",
     "@vueform/vueform": "^1.10.1",
     "bootstrap": "^5.3.3",
