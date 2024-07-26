@@ -1,14 +1,18 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
     {{ msgLogin }}
-    <Vueform v-bind="vueform" />
     <div>
-      <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br />
-      <GoogleLogin :callback="callback" />
+      <Vueform v-bind="vueform" />
+      <div class="text-center">or</div>
+      <div class="d-flex justify-content-evenly mt-4">
+        <GoogleLogin :callback="callback" />
+        <v-facebook-login app-id="966242223397117" class="no-border fb"></v-facebook-login>
+      </div>
     </div>
+    <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
   </div>
 </template>
+
 <script setup>
 import router from '@/router'
 import { ref, toRefs } from 'vue'
@@ -22,6 +26,7 @@ const callback = (response) => {
     router.push('/')
   }
 }
+
 const props = defineProps({
   msgLogin: String
 })
@@ -109,17 +114,15 @@ const vueform = ref({
 <style scoped>
 form {
   padding: 2%;
-  /* border: 1px solid gray; */
   width: 500px;
   height: fit-content;
-  /* border-radius: 15px; */
-  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
 }
 #agent-img {
   width: 600px;
 }
+
 @media screen and (max-width: 600px) {
   form {
     border: none;

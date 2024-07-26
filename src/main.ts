@@ -1,6 +1,5 @@
 import 'primeicons/primeicons.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VFacebookLogin from 'vue-facebook-login-component-next';
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import '@/assets/main.css'
@@ -13,6 +12,7 @@ import Aura from '@primevue/themes/aura'
 import 'primeicons/primeicons.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import vue3GoogleLogin from 'vue3-google-login'
+import VFacebookLogin from 'vue-facebook-login-component-next'
 
 const app = createApp(App);
 
@@ -32,7 +32,7 @@ app.use(vue3GoogleLogin, {
 
 app.use(router);
 
-app.component('VFacebookLogin', VFacebookLogin);
+app.component("VFacebookLogin", VFacebookLogin);
 
 
 app.mount('#app');
