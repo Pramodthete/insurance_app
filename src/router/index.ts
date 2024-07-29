@@ -6,6 +6,7 @@ import CustomerForm from '@/components/CustomerForm.vue'
 import AllCustomers from '@/components/AllCustomers.vue'
 import Schemes from '@/components/Schemes.vue'
 import Header from '@/components/Header.vue'
+import AdminDashboard from '@/components/AdminDashboard.vue'
 import Employees from '@/components/Employees.vue'
 import CustomerDetail from '../components/CustomerDetail.vue'
 import Signup from "../components/Signup.vue"
@@ -16,28 +17,46 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'header',
       component: Header,
       children: [
         {
-          path: '/showCustomers',
-          name: 'showCustomers',
+          path: '',
+          name: 'home',
+          component: Schemes
+        },
+        {
+          path: 'customers',
+          name: 'all-customers',
           component: AllCustomers
         },
         {
-          path: '/',
-          name: 'schemes',
-          component: Schemes
+          path: 'admin',
+          component: AdminDashboard,
+          children: [
+            {
+              path: 'customers',
+              name: 'admin-customers',
+              component: AllCustomers
+            },
+            {
+              path: 'agents',
+              name: 'admin-agents',
+              component: AllCustomers
+            },
+            {
+              path: 'employees',
+              name: 'admin-employees',
+              component: AllCustomers
+            }
+          ]
         },
-
         {
-          path: '/employees',
+          path: 'employees',
           name: 'employees',
           component: Employees
         },
-
         {
-          path: '/customerDetails',
+          path: 'customerDetails',
           name: 'customerDetails',
           component: CustomerDetail
         },

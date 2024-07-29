@@ -23,8 +23,8 @@ const list = ref([
 </script>
 
 <template>
-  <div style="width: 100%">
-    <div class="p-2">
+  <div style="width: 100%; padding-top: 15px">
+    <div class="p-2 pt-5">
       <div class="text-center d-flex flex-wrap justify-content-evenly pt-4 mb-4">
         <div class="rohit-img-div">
           <Image

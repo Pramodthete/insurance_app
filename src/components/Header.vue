@@ -1,15 +1,36 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 
 <script setup>
+import router from '@/router'
 import { ref } from 'vue'
 const items = ref([
   {
     label: 'Home',
-    icon: 'pi pi-home'
+    icon: 'pi pi-home',
+    command: () => {
+      router.push('/')
+    }
   },
   {
-    label: 'Special Offers',
-    icon: 'pi pi-star'
+    label: 'customers',
+    icon: 'pi pi-briefcase',
+    command: () => {
+      router.push('/admin/customers')
+    }
+  },
+  {
+    label: 'Employees',
+    icon: 'pi pi-users',
+    command: () => {
+      router.push('/admin/employees')
+    }
+  },
+  {
+    label: 'Agents',
+    icon: 'pi pi-briefcase',
+    command: () => {
+      router.push('/admin/agents')
+    }
   },
   {
     label: 'Services',
@@ -32,15 +53,6 @@ const items = ref([
         icon: 'pi pi-sun'
       }
     ]
-  },
-  {
-    label: 'Contact Info',
-    icon: 'pi pi-envelope',
-    badge: 3
-  },
-  {
-    label: 'About Us',
-    icon: 'pi pi-envelope'
   }
 ])
 
@@ -174,5 +186,10 @@ const toggleSet = (event) => {
   border-radius: 50%;
   border: 1px solid white;
   background-color: white;
+}
+.card {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
 </style>

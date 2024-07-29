@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue'
-import Footer from './Footer.vue'
 
 const products = ref([
   {
@@ -83,13 +82,13 @@ const getSeverity = (product) => {
 </script>
 
 <template>
-  <div>
+  <div class="cust">
     <div class="card border-0 my-1 bg-warning">
-      <Toolbar class="mb-6 w-100">
+      <!-- <Toolbar class="mb-6 w-100">
         <template #start>
           <Button label="New" outlined icon="pi pi-plus" severity="success" />
         </template>
-      </Toolbar>
+      </Toolbar> -->
 
       <div>
         <DataTable
@@ -105,7 +104,7 @@ const getSeverity = (product) => {
           <template #header>
             <div class="d-flex flex-wrap gap-5">
               <h4 class="m-0">Manage Customers</h4>
-              <InputGroup class="w-25">
+              <InputGroup class="wi">
                 <InputText placeholder="Search..." />
                 <Button icon="pi pi-search" severity="warn" />
               </InputGroup>
@@ -166,11 +165,22 @@ const getSeverity = (product) => {
       </div>
     </div>
   </div>
-  <Footer />
 </template>
 
 <style scoped>
+.cust {
+  position: relative;
+  top: 100px;
+}
 .fix-width {
   width: 950px;
+}
+.wi {
+  width: 25%;
+}
+@media screen and (max-width: 700px) {
+  .wi {
+    width: 100%;
+  }
 }
 </style>
