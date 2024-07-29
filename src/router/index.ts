@@ -6,31 +6,59 @@ import CustomerForm from '@/components/CustomerForm.vue'
 import AllCustomers from '@/components/AllCustomers.vue'
 import Schemes from '@/components/Schemes.vue'
 import Header from '@/components/Header.vue'
+import AdminDashboard from '@/components/AdminDashboard.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'header',
       component: Header,
       children: [
         {
-          path: '/showCustomers',
-          name: 'showCustomers',
+          path: '',
+          name: 'home',
+          component: Schemes
+        },
+        {
+          path: 'customers',
+          name: 'all-customers',
           component: AllCustomers
         },
         {
-          path: '/',
-          name: 'schemes',
-          component: Schemes
+          path: 'admin',
+          component: AdminDashboard,
+          children: [
+            {
+              path: 'customers',
+              name: 'admin-customers',
+              component: AllCustomers
+            }
+          ]
+        },
+        {
+          path: 'admin',
+          component: AdminDashboard,
+          children: [
+            {
+              path: 'agents',
+              name: 'admin-agents',
+              component: AllCustomers
+            }
+          ]
+        },
+        {
+          path: 'admin',
+          component: AdminDashboard,
+          children: [
+            {
+              path: 'employees',
+              name: 'admin-employees',
+              component: AllCustomers
+            }
+          ]
         }
       ]
-    },
-    {
-      path: '/',
-      name: 'home',
-      component: RegisterForm
     },
     {
       path: '/login',
@@ -38,16 +66,15 @@ const router = createRouter({
       component: Login
     },
     {
-      path: '/registerEmployee',
+      path: '/employee',
       name: 'employee-form',
       component: RegisterForm
     },
     {
-      path: '/registerInsuranceAgent',
+      path: '/insuranceAgent',
       name: 'agent-form',
       component: InsuranceAgentForm
     },
-
     {
       path: '/customer',
       name: 'customer',
