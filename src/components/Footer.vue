@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <section>
-    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted" style="margin-top: 100px">
       <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <!-- Left -->
         <div class="me-5 d-none d-lg-block">
