@@ -7,6 +7,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Accordion: typeof import('primevue/accordion')['default']
+    AccordionContent: typeof import('primevue/accordioncontent')['default']
+    AccordionHeader: typeof import('primevue/accordionheader')['default']
+    AccordionPanel: typeof import('primevue/accordionpanel')['default']
     AllCustomers: typeof import('./src/components/AllCustomers.vue')['default']
     Avatar: typeof import('primevue/avatar')['default']
     Badge: typeof import('primevue/badge')['default']
@@ -18,6 +22,7 @@ declare module 'vue' {
     DataTable: typeof import('primevue/datatable')['default']
     EmployeeForm: typeof import('./src/components/EmployeeForm.vue')['default']
     Employees: typeof import('./src/components/Employees.vue')['default']
+    Fieldset: typeof import('primevue/fieldset')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
@@ -26,6 +31,7 @@ declare module 'vue' {
     IconField: typeof import('primevue/iconfield')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    Image: typeof import('primevue/image')['default']
     InputGroup: typeof import('primevue/inputgroup')['default']
     InputIcon: typeof import('primevue/inputicon')['default']
     InputNumber: typeof import('primevue/inputnumber')['default']

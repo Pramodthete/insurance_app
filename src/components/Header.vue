@@ -72,6 +72,11 @@ const setting = ref([
           console.log('heloooooooooooo')
           const element = document.querySelector('html')
           element.classList.toggle('my-app-dark')
+          if (document.body.style.backgroundColor == 'black') {
+            document.body.style.backgroundColor = 'white'
+          } else {
+            document.body.style.backgroundColor = 'black'
+          }
         }
       }
     ]
@@ -92,7 +97,7 @@ const toggleSet = (event) => {
         <!-- <h2>Insurance App</h2> -->
         <img
           width="50px"
-          class="ms-2"
+          class="ms-2 p-1 im"
           src="https://uxwing.com/wp-content/themes/uxwing/download/hand-gestures/insurance-protected-icon.png"
           alt=""
         />
@@ -162,3 +167,12 @@ const toggleSet = (event) => {
     <RouterView />
   </div>
 </template>
+
+<style scoped>
+.im {
+  filter: drop-shadow(1px 4px 16px rgb(249, 249, 248));
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: white;
+}
+</style>
