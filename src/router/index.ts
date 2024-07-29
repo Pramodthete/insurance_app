@@ -6,6 +6,8 @@ import CustomerForm from '@/components/CustomerForm.vue'
 import AllCustomers from '@/components/AllCustomers.vue'
 import Schemes from '@/components/Schemes.vue'
 import Header from '@/components/Header.vue'
+import Employees from '@/components/Employees.vue'
+import CustomerDetail from '../components/CustomerDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +26,18 @@ const router = createRouter({
           path: '/',
           name: 'schemes',
           component: Schemes
+        },
+
+        {
+          path: '/employees',
+          name: 'employees',
+          component: Employees
+        },
+
+        {
+          path: '/customerDetails',
+          name: 'customerDetails',
+          component: CustomerDetail
         }
       ]
     },
