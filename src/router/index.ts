@@ -8,6 +8,8 @@ import Schemes from '@/components/Schemes.vue'
 import Header from '@/components/Header.vue'
 import Employees from '@/components/Employees.vue'
 import CustomerDetail from '../components/CustomerDetail.vue'
+import Signup from "../components/Signup.vue"
+import EmployeeForm from '@/components/EmployeeForm.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,9 +40,35 @@ const router = createRouter({
           path: '/customerDetails',
           name: 'customerDetails',
           component: CustomerDetail
-        }
+        },
+
       ]
     },
+
+
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup,
+      children:[
+        {
+          path: '/signup/customer',
+          name: 'customer',
+          component: CustomerForm
+        },
+        {
+          path: '/signup/agent',
+          name: 'agent',
+          component: InsuranceAgentForm
+        },
+        {
+          path: '/signup/employee',
+          name: 'employee',
+          component: EmployeeForm
+        },
+      ]
+    },
+
     {
       path: '/',
       name: 'home',
@@ -50,22 +78,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/registerEmployee',
-      name: 'employee-form',
-      component: RegisterForm
-    },
-    {
-      path: '/registerInsuranceAgent',
-      name: 'agent-form',
-      component: InsuranceAgentForm
-    },
-
-    {
-      path: '/customer',
-      name: 'customer',
-      component: CustomerForm
     }
   ]
 })

@@ -44,6 +44,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Schemes: typeof import('./src/components/Schemes.vue')['default']
+    Signup: typeof import('./src/components/Signup.vue')['default']
+    TabMenu: typeof import('primevue/tabmenu')['default']
     Tag: typeof import('primevue/tag')['default']
     Toolbar: typeof import('primevue/toolbar')['default']
   }

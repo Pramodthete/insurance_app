@@ -1,14 +1,11 @@
 <template>
   <div class="d-flex justify-content-center align-items-center h-100">
     {{ msgCustomer }}
-    <Vueform v-bind="vueform" />
-    <div class="h-100 w-50 object-fit-cover">
-      <img
-        style="width: 70%"
-        src="/src/assets/undraw_fun_moments_2vha.svg"
-        alt=""
-      />
+    <div class="object-fit-cover">
+      <img id="cust-img" src="/src/assets/undraw_fun_moments_2vha.svg"/>
     </div>
+    <Vueform v-bind="vueform" />
+
   </div>
 </template>
 
@@ -28,13 +25,10 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      content: 'Customer Registration',
+      // content: 'Customer Registration',
       tag: 'h1'
     },
-    divider: {
-      type: 'static',
-      tag: 'hr'
-    },
+
     name: {
       type: 'text',
       rules: ['required'],
@@ -81,10 +75,7 @@ const vueform = ref({
       text: 'I accept the Terms & Conditions & Privacy Policy',
       rules: ['accepted']
     },
-    divider_1: {
-      type: 'static',
-      tag: 'hr'
-    },
+
     register: {
       type: 'button',
       submits: true,
@@ -99,10 +90,16 @@ const vueform = ref({
 <style scoped>
 form {
   padding: 2%;
-  width: 600px;
+  width: 400px;
   height: fit-content;
   margin-top: 2%;
 }
+
+#cust-img{
+  width: 300px;
+  height: 300px;
+}
+
 @media screen and (max-width: 600px) {
   form {
     border: none;

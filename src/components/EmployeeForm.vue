@@ -1,9 +1,9 @@
 <!-- CreateAccount.vue -->
 
 <template>
-  <div class="d-flex flex-wrap justify-content-center align-items-center h-100">
-    {{ msg }}
-    <div>
+  <div class="d-flex justify-content-center align-items-center h-100">
+    <!-- {{ msg }} -->
+    <div class="h-100 w-50 object-fit-cover">
       <img id="emp-img" src="./../assets/employee.svg" alt="My Happy SVG" />
     </div>
     <Vueform v-bind="vueform" />
@@ -13,15 +13,12 @@
 <script setup>
 import { ref, toRefs } from 'vue'
 
-// Manually define props
 const props = defineProps({
   msg: String
 })
 
-// Extract `msg` from props
 const { msg } = toRefs(props)
 
-// Use `useVueform` as a composable function
 const vueform = ref({
   size: 'md',
   displayErrors: false,
@@ -29,7 +26,7 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      content: 'Employee Registration<br><br>',
+      // content: 'Employee Registration<br><br>',
       tag: 'h1'
     },
     name: {
@@ -37,7 +34,7 @@ const vueform = ref({
       rules: ['required'],
       fieldName: 'name',
       label: 'Full Name',
-      size: 'lg'
+    
     },
     email: {
       type: 'text',
@@ -45,12 +42,12 @@ const vueform = ref({
       rules: ['required', 'not_regex: ', 'email'],
       fieldName: 'Email',
       label: 'Email',
-      size: 'lg'
+      
     },
     user_name: {
       type: 'text',
       label: 'UserName',
-      size: 'lg',
+     
       rules: ['required']
     },
     password: {
@@ -63,7 +60,7 @@ const vueform = ref({
       ],
       fieldName: 'Password',
       label: 'Password',
-      size: 'lg'
+     
     },
     terms: {
       type: 'checkbox',
@@ -83,8 +80,11 @@ const vueform = ref({
 
 <style scoped>
 #emp-img {
-  width: 500px;
+  width: 300px;
+  height: 300px !important;
 }
+
+
 /* #app {
   display: flex;
   justify-content: center;
@@ -95,7 +95,7 @@ const vueform = ref({
 form {
   padding: 2%;
   /* border: 1px solid gray; */
-  width: 500px;
+  width: 400px;
   height: fit-content;
   /* border-radius: 15px; */
   /* box-shadow: 0px 1px 8px 1px gray; */

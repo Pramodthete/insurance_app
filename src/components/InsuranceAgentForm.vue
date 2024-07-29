@@ -1,21 +1,21 @@
 <!-- CreateAccount.vue -->
 <template>
-  <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center h-100">
-    {{ msgAgent }}
-    <Vueform endpoint="/agent-form/submit" method="post" v-bind="vueform" />
-    <div>
+  <div class="d-flex gap-3 justify-content-center align-items-center h-100">
+    <!-- {{ msgAgent }} -->
+    <div class="h-100 w-50 object-fit-cover">
       <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" />
     </div>
+    <Vueform endpoint="/agent-form/submit" method="post" v-bind="vueform" />
+
   </div>
 </template>
 <script setup>
 import { ref, toRefs } from 'vue'
-// Manually define props
+
 const props = defineProps({
   msgAgent: String
 })
 
-// Extract `msg` from props
 const { msgAgent } = toRefs(props)
 
 const vueform = ref({
@@ -25,7 +25,7 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      content: 'Insurance Agent <br><br> Registration<br><br>',
+      // content: 'Insurance Agent <br><br> Registration<br><br>',
       tag: 'h2'
     },
     name: {
@@ -33,7 +33,7 @@ const vueform = ref({
       rules: ['required'],
       fieldName: 'name',
       label: 'Full Name',
-      size: 'lg'
+     
     },
     email: {
       type: 'text',
@@ -41,12 +41,12 @@ const vueform = ref({
       rules: ['required', 'not_regex: ', 'email'],
       fieldName: 'Email',
       label: 'Email',
-      size: 'lg'
+     
     },
     user_name: {
       type: 'text',
       label: 'UserName',
-      size: 'lg',
+     
       rules: ['required']
     },
     password: {
@@ -59,7 +59,7 @@ const vueform = ref({
       ],
       fieldName: 'Password',
       label: 'Password',
-      size: 'lg'
+      
     },
     terms: {
       type: 'checkbox',
@@ -80,16 +80,14 @@ const vueform = ref({
 <style scoped>
 form {
   padding: 2%;
-  /* border: 1px solid gray; */
   width: 400px;
   height: fit-content;
-  /* border-radius: 15px; */
-  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
 }
 #agent-img {
-  width: 600px;
+  width: 300px;
+  height: 300px;
 }
 @media screen and (max-width: 600px) {
   form {
@@ -98,7 +96,8 @@ form {
     box-shadow: none;
   }
   #agent-img {
-    width: 100%;
+    width: 300px;
+    height: 300px;
   }
 }
 
