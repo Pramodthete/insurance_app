@@ -9,7 +9,7 @@ const items = ref([
   { label: 'Customer', icon: 'pi pi-user-plus',command:()=>{
     router.push('/signup/customer')
   }},
-  { label: 'Insurance Agent', icon: 'pi pi-briefcase',command:()=>{
+  { label: 'Agent', icon: 'pi pi-briefcase',command:()=>{
     router.push('/signup/agent')
   } },
 
@@ -17,18 +17,28 @@ const items = ref([
 </script>
 
 <template>
-  <div class=" custom d-flex justify-content-center pt-4 flex-column align-items-center bg-light">
-    <TabMenu  :model="items"/>
+  <div class="d-flex justify-content-center pt-4 flex-column align-items-center bg-light">
+    <TabMenu  :model="items" class="tab"/>
     <div>
        <RouterView></RouterView>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-// $gradient: linear-gradient(180deg, rgba($white, .15), rgba($white, 0));
+<style scoped>
 
-.custom{
-    background-image: linear-gradient(180deg,rgba(50,50,50,.15),rgba(129,126,221,0))
-}
+
+/* @media screen and (max-width:440px){
+  .tab{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+} */
+
+ @media screen and (max-width:370px) {
+  .tab{
+    width: 100%;
+  }
+ }
 </style>
