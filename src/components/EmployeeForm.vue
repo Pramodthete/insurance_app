@@ -3,7 +3,7 @@
 <template>
   <div class="d-flex justify-content-center align-items-center h-100">
     <!-- {{ msg }} -->
-    <div class="h-100 w-50 object-fit-cover">
+    <div class="h-100 w-50 img-div">
       <img id="emp-img" src="./../assets/employee.svg" alt="My Happy SVG" />
     </div>
     <Vueform v-bind="vueform" />
@@ -26,7 +26,6 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      // content: 'Employee Registration<br><br>',
       tag: 'h1'
     },
     name: {
@@ -84,32 +83,24 @@ const vueform = ref({
   height: 300px !important;
 }
 
-
-/* #app {
-  display: flex;
-  justify-content: center;
-  place-items: center;
-  width: 100vw;
-  height: 100vh !important;
-} */
 form {
   padding: 2%;
-  /* border: 1px solid gray; */
   width: 400px;
   height: fit-content;
-  /* border-radius: 15px; */
-  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
 }
-@media screen and (max-width: 600px) {
+
+
+@media screen and (max-width: 700px) {
   form {
     border: none;
     width: 100%;
     box-shadow: none;
   }
-  #emp-img {
-    width: 100%;
+
+  .img-div{
+    display: none;
   }
 }
 

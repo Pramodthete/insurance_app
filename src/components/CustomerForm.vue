@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-center align-items-center h-100">
     {{ msgCustomer }}
-    <div class="object-fit-cover">
+    <div class="img-div">
       <img id="cust-img" src="/src/assets/undraw_fun_moments_2vha.svg"/>
     </div>
     <Vueform v-bind="vueform" />
@@ -100,11 +100,15 @@ form {
   height: 300px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   form {
     border: none;
     width: 100%;
     box-shadow: none;
+  }
+
+  .img-div{
+    display: none;
   }
 }
 

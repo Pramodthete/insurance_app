@@ -2,7 +2,7 @@
 <template>
   <div class="d-flex gap-3 justify-content-center align-items-center h-100">
     <!-- {{ msgAgent }} -->
-    <div class="h-100 w-50 object-fit-cover">
+    <div class="h-100 w-50 img-div">
       <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" />
     </div>
     <Vueform endpoint="/agent-form/submit" method="post" v-bind="vueform" />
@@ -89,15 +89,17 @@ form {
   width: 300px;
   height: 300px;
 }
-@media screen and (max-width: 600px) {
+
+
+@media screen and (max-width: 700px) {
   form {
     border: none;
     width: 100%;
     box-shadow: none;
   }
-  #agent-img {
-    width: 300px;
-    height: 300px;
+
+  .img-div{
+    display: none;
   }
 }
 
