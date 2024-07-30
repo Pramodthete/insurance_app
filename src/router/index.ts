@@ -9,6 +9,7 @@ import Header from '@/components/Header.vue'
 import AdminDashboard from '@/components/AdminDashboard.vue'
 import Employees from '@/components/Employees.vue'
 import CustomerDetail from '../components/CustomerDetail.vue'
+import InsurancePolicies from '@/components/InsurancePolicies.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
               path: 'employees',
               name: 'admin-employees',
               component: AllCustomers
+            },
+            {
+              path: 'policies',
+              name: 'admin-policies',
+              component: InsurancePolicies
             }
           ]
         },

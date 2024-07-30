@@ -38,7 +38,10 @@ const items = ref([
     items: [
       {
         label: 'Home Insurance',
-        icon: 'pi pi-home'
+        icon: 'pi pi-home',
+        command: () => {
+          router.push('/admin/policies')
+        }
       },
       {
         label: 'Car Insurance',
