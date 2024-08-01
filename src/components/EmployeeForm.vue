@@ -26,7 +26,6 @@ const vueform = ref({
   schema: {
     page_title: {
       type: 'static',
-      // content: 'Employee Registration<br><br>',
       tag: 'h1'
     },
     name: {
@@ -90,11 +89,8 @@ const vueform = ref({
 } */
 form {
   padding: 2%;
-  /* border: 1px solid gray; */
   width: 400px;
   height: fit-content;
-  /* border-radius: 15px; */
-  /* box-shadow: 0px 1px 8px 1px gray; */
   position: relative;
   margin-top: 2%;
 }

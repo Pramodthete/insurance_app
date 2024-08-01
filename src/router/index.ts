@@ -11,6 +11,7 @@ import CustomerDetail from '../components/CustomerDetail.vue'
 import Signup from '../components/Signup.vue'
 import EmployeeForm from '@/components/EmployeeForm.vue'
 import InsurancePolicies from '@/components/InsurancePolicies.vue'
+import AdminForm from '@/components/AdminForm.vue'
 import AllAgents from '@/components/AllAgents.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,15 +91,17 @@ const router = createRouter({
         }
       ]
     },
+
     {
       path: '/login',
       name: 'login',
       component: Login
     },
+
     {
-      path: '/agents',
-      name: 'agents',
-      component: AllAgents
+      path: '/admin/register',
+      name: 'register-admin',
+      component: AdminForm
     }
   ]
 })
