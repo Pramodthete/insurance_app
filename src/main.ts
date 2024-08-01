@@ -1,5 +1,5 @@
-import 'primeicons/primeicons.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'primeicons/primeicons.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import '@/assets/main.css'
@@ -12,27 +12,23 @@ import Aura from '@primevue/themes/aura'
 import 'primeicons/primeicons.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import vue3GoogleLogin from 'vue3-google-login'
-import VFacebookLogin from 'vue-facebook-login-component-next'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(createPinia());
-app.use(Vueform, vueformConfig);
+app.use(createPinia())
+app.use(Vueform, vueformConfig)
 app.use(PrimeVue, {
   theme: {
     preset: Aura,
     options: {
-      darkModeSelector: '.my-app-dark',
-    },
-  },
-});
+      darkModeSelector: '.my-app-dark'
+    }
+  }
+})
 app.use(vue3GoogleLogin, {
   clientId: '1074755295681-700r0r1t5rc5k50l99ld5cqucv5l6ib6.apps.googleusercontent.com'
 })
 
-app.use(router);
+app.use(router)
 
-app.component("VFacebookLogin", VFacebookLogin);
-
-
-app.mount('#app');
+app.mount('#app')

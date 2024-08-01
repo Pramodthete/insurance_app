@@ -193,13 +193,7 @@ const updateData = (data: {}) => {
               severity="help"
               @click="updateData(data)"
             />
-            <Button
-              icon="pi pi-trash"
-              outlined
-              rounded
-              severity="danger"
-              @click="deleteProduct()"
-            />
+            <Button icon="pi pi-trash" outlined rounded severity="danger" />
           </div>
         </template>
       </Column>

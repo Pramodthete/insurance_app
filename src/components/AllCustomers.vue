@@ -1,11 +1,16 @@
 <script setup>
 import { ref } from 'vue'
+import EditDialog from './EditDialog.vue'
+const visible = ref(false)
+const EditData = ref({})
 
 const products = ref([
   {
     id: 1,
     code: 'C001',
     name: 'Suraj',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 12,
     category: 'Home Insurance',
     premium: 209.09,
@@ -16,6 +21,8 @@ const products = ref([
     id: 2,
     code: 'C002',
     name: 'Pramod',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 22,
     category: 'Car Insurance',
     premium: 504.88,
@@ -26,6 +33,8 @@ const products = ref([
     id: 3,
     code: 'C003',
     name: 'Mayur',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 22,
     category: 'Health Insurance',
     premium: 306.99,
@@ -36,6 +45,8 @@ const products = ref([
     id: 4,
     code: 'C004',
     name: 'Raj Shigade',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 24,
     category: 'Health Insurance',
     premium: 49.98,
@@ -46,6 +57,8 @@ const products = ref([
     id: 5,
     code: 'C005',
     name: 'Hrituj',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 29,
     category: 'Pet Insurance',
     premium: 204.77,
@@ -56,6 +69,8 @@ const products = ref([
     id: 6,
     code: 'C006',
     name: 'Pranav',
+    username: 'Josephine9966',
+    email: 'jose55@gmail.com',
     age: 21,
     category: 'Crop Insurance',
     premium: 199.85,
@@ -79,6 +94,22 @@ const getSeverity = (product) => {
       return null
   }
 }
+const close = (vis) => {
+  visible.value = vis
+}
+const updateData = (data) => {
+  visible.value = true
+  EditData.value = data
+}
+function onRowReorder(event) {
+  const { dragIndex, dropIndex } = event
+
+  const [draggedData] = products.value.splice(dragIndex, 1)
+
+  products.value.splice(dropIndex, 0, draggedData)
+
+  //   cars2.value = cars1.value.filter((car) => car)
+}
 </script>
 
 <template>
@@ -100,6 +131,7 @@ const getSeverity = (product) => {
           paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
           :rowsPerPageOptions="[5, 10, 25]"
           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+          @row-reorder="onRowReorder"
         >
           <template #header>
             <div class="d-flex flex-wrap gap-5">
@@ -110,6 +142,8 @@ const getSeverity = (product) => {
               </InputGroup>
             </div>
           </template>
+          <template #empty> No customers found. </template>
+          <Column :rowReorder="true" headerStyle="width: 3em" />
           <div class="fix-width overflow-x-hidden ps-2">
             <Column field="code" header="Customer Id" sortable></Column>
             <Column field="name" header="Full Name" sortable></Column>
@@ -141,25 +175,20 @@ const getSeverity = (product) => {
               </template>
             </Column>
             <Column field="actions" header="Actions" :exportable="false">
-              <template #body>
+              <template #body="{ data }">
                 <div class="flex flex-wrap gap-2">
                   <Button
                     icon="pi pi-pencil"
                     outlined
                     rounded
                     severity="help"
-                    @click="editProduct(slotProps.rowData)"
+                    @click="updateData(data)"
                   />
-                  <Button
-                    icon="pi pi-trash"
-                    outlined
-                    rounded
-                    severity="danger"
-                    @click="deleteProduct(slotProps.rowData)"
-                  />
+                  <Button icon="pi pi-trash" outlined rounded severity="danger" />
                 </div>
               </template>
             </Column>
+            <EditDialog v-if="visible == true" :EditData="EditData" @updateDialog="close" />
           </div>
         </DataTable>
       </div>
