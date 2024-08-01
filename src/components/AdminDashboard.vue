@@ -1,5 +1,8 @@
 <script setup>
 import Footer from './Footer.vue'
+import { ref } from "vue";
+
+const visible = ref(false);
 </script>
 
 <template>
@@ -48,7 +51,28 @@ import Footer from './Footer.vue'
         </template>
       </Card>
     </div>
+    <div class="p-2">
+     <button @click="visible=true">Add Scheme</button>
+     <Dialog v-model:visible="visible" modal header="Add New Scheme" :style="{ width: '25rem' }">
+    <div class="mb-4">
+      <div>
+        <label for="name" class="w-24">Scheme Name</label></div>
+        <InputText id="name" class="flex-auto w-100" autocomplete="off" />
+    </div>
+    <div class="mb-8">
+        <div><label for="description" class="w-24">Scheme Description</label></div>
+        <InputText id="description" class="flex-auto w-100" autocomplete="off" />
+    </div>
+    <div class="d-flex gap-2 justify-content-end mt-3">
+     
+       <Button class="" type="button" label="Cancel" severity="secondary" @click="visible = false"></Button>
+        <Button type="button" label="Add" @click="visible = false"></Button>
+      </div>
+
+</Dialog>
+    </div>
   </div>
+
   <div>
     <RouterView />
   </div>
