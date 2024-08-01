@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
 import { ref } from 'vue'
 
@@ -84,7 +85,6 @@ const getSeverity = (product) => {
 <template>
   <div class="cust">
     <div class="card border-0 my-1 bg-warning">
-
       <div>
         <DataTable
           ref="dt"
@@ -130,19 +130,8 @@ const getSeverity = (product) => {
             <Column field="actions" header="Actions" :exportable="false">
               <template #body>
                 <div class="flex flex-wrap gap-2">
-                  <Button
-                    icon="pi pi-pencil"
-                    outlined
-                    rounded
-                    severity="help"
-                    
-                  />
-                  <Button
-                    icon="pi pi-trash"
-                    outlined
-                    rounded
-                    severity="danger"
-                  />
+                  <Button icon="pi pi-pencil" outlined rounded severity="help" />
+                  <Button icon="pi pi-trash" outlined rounded severity="danger" />
                 </div>
               </template>
             </Column>
@@ -164,7 +153,6 @@ const getSeverity = (product) => {
 .wi {
   width: 25%;
 }
-
 
 @media screen and (max-width: 700px) {
   .wi {

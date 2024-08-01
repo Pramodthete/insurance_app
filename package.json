@@ -19,6 +19,7 @@
     "@vueform/vueform": "^1.10.1",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "fb-sdk-wrapper": "^1.1.0",
     "jsonwebtoken": "^9.0.2",
     "pinia": "^2.1.7",

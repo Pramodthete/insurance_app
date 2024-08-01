@@ -1,177 +1,161 @@
-<!-- eslint-disable vue/multi-word-component-names -->
-<script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { CustomerService } from '@/service/CustomerService'
-import { FilterMatchMode, FilterOperator } from '@primevue/core/api'
-import EditDialog from './EditDialog.vue'
+<script setup>
+import { ref } from 'vue'
 
-const customers = ref()
-const selectedCustomers = ref()
-const filters = ref()
-const visible = ref(false)
-const EditData = ref({})
-
-onMounted(() => {
-  CustomerService.getCustomersLarge().then((data: any) => {
-    customers.value = getCustomers(data)
-  })
-})
-
-const initFilters = () => {
-  filters.value = {
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    name: {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]
-    },
-    'country.name': {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }]
-    },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-    date: {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }]
-    },
-    balance: {
-      operator: FilterOperator.AND,
-      constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }]
-    },
-    status: {
-      operator: FilterOperator.OR,
-      constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }]
-    },
-    activity: { value: [0, 100], matchMode: FilterMatchMode.BETWEEN },
-    verified: { value: null, matchMode: FilterMatchMode.EQUALS }
+const products = ref([
+  {
+    id: 1,
+    code: 'C001',
+    name: 'Akash ambani',
+    age: 12,
+    category: 'Bike Insurance',
+    premium: 209.09,
+    inventoryStatus: 'On Going...',
+    image: 'https://via.placeholder.com/64'
+  },
+  {
+    id: 2,
+    code: 'C002',
+    name: 'Pramod Musk',
+    age: 22,
+    category: 'Car Insurance',
+    premium: 504.88,
+    inventoryStatus: 'Completed',
+    image: 'https://via.placeholder.com/64'
+  },
+  {
+    id: 3,
+    code: 'C003',
+    name: 'Mayur Shinde',
+    age: 22,
+    category: 'Health Insurance',
+    premium: 306.99,
+    inventoryStatus: 'Completed',
+    image: 'https://via.placeholder.com/64'
+  },
+  {
+    id: 4,
+    code: 'C004',
+    name: 'Raj Kapoor',
+    age: 24,
+    category: 'Health Insurance',
+    premium: 49.98,
+    inventoryStatus: 'On Going...',
+    image: 'https://via.placeholder.com/64'
+  },
+  {
+    id: 5,
+    code: 'C005',
+    name: 'Yash Patil',
+    age: 29,
+    category: 'Pet Insurance',
+    premium: 204.77,
+    inventoryStatus: 'On Going...',
+    image: 'https://via.placeholder.com/64'
+  },
+  {
+    id: 6,
+    code: 'C006',
+    name: 'Rohit Sharma',
+    age: 21,
+    category: 'Crop Insurance',
+    premium: 199.85,
+    inventoryStatus: 'Completed',
+    image: './public/favicon.ico'
   }
+])
+
+const formatCurrency = (value) => {
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'INR' }).format(value)
 }
+const getSeverity = (product) => {
+  switch (product.inventoryStatus) {
+    case 'Completed':
+      return 'success'
 
-initFilters()
+    case 'On Going...':
+      return 'warn'
 
-const formatDate = (value: {
-  toLocaleDateString: (arg0: string, arg1: { day: string; month: string; year: string }) => any
-}) => {
-  return value.toLocaleDateString('en-US', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  })
-}
-const formatCurrency = (value: {
-  toLocaleString: (arg0: string, arg1: { style: string; currency: string }) => any
-}) => {
-  return value.toLocaleString('en-US', { style: 'currency', currency: 'INR' })
-}
-
-const getCustomers = (data: any) => {
-  return [...(data || [])].map((d) => {
-    d.date = new Date(d.date)
-
-    return d
-  })
-}
-
-function onRowReorder(event: { dragIndex: any; dropIndex: any }) {
-  const { dragIndex, dropIndex } = event
-
-  const [draggedData] = customers.value.splice(dragIndex, 1)
-
-  customers.value.splice(dropIndex, 0, draggedData)
-
-  //   cars2.value = cars1.value.filter((car) => car)
-}
-const close = (vis: boolean) => {
-  visible.value = vis
-}
-const updateData = (data: {}) => {
-  visible.value = true
-  EditData.value = data
+    default:
+      return 'info'
+  }
 }
 </script>
 
 <template>
-  <div class="card" style="margin-top: 100px">
-    <DataTable
-      v-model:filters="filters"
-      v-model:selection="selectedCustomers"
-      :value="customers"
-      paginator
-      :rows="10"
-      dataKey="id"
-      filterDisplay="menu"
-      :globalFilterFields="['name', 'country.name', 'representative.name', 'balance', 'status']"
-      @row-reorder="onRowReorder"
-    >
-      <template #header>
-        <div class="d-flex flex-wrap justify-content-start gap-5">
-          <h3>Manage Insurance Agent</h3>
-          <IconField>
-            <InputIcon>
-              <i class="pi pi-search" />
-            </InputIcon>
-            <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-          </IconField>
-        </div>
-      </template>
-      <template #empty> No customers found. </template>
-      <Column :rowReorder="true" headerStyle="width: 3em" />
-      <Column field="name" header="Name" sortable style="min-width: 14rem">
-        <template #body="{ data }">
-          {{ data.name }}
-        </template>
-      </Column>
-      <Column header="Country" style="min-width: 14rem">
-        <template #body="{ data }">
-          <div class="flex items-center gap-2">
-            <img
-              alt="flag"
-              src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
-              :class="`flag flag-${data.country.code}`"
-              style="width: 24px"
-            />
-            <span>{{ data.country.name }}</span>
+  <div class="cust">
+    <div class="card border-0 my-1 bg-warning">
+      <div>
+        <DataTable
+          ref="dt"
+          :value="products"
+          dataKey="id"
+          :paginator="true"
+          :rows="10"
+          paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+          :rowsPerPageOptions="[5, 10, 25]"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+        >
+          <template #header>
+            <div class="d-flex flex-wrap gap-5 justify-content-between">
+              <h4 class="m-0">Employee Details</h4>
+              <InputGroup class="wi">
+                <InputText placeholder="Search..." />
+                <Button icon="pi pi-search" severity="info" />
+              </InputGroup>
+            </div>
+          </template>
+          <div class="fix-width overflow-x-hidden ps-2">
+            <Column field="code" header="Customer Id" sortable></Column>
+            <Column field="name" header="Full Name" sortable></Column>
+            <Column field="age" header="Age" sortable>
+              <template v-slot="slotProps">
+                {{ formatCurrency(slotProps.data.age) }}
+              </template>
+            </Column>
+            <Column field="category" header="Category" sortable></Column>
+            <Column field="premium" header="Commission/m" sortable>
+              <template #body="slotProps">
+                {{ formatCurrency(slotProps.data.premium) }}
+              </template>
+            </Column>
+            <Column field="inventoryStatus" header="Status" sortable>
+              <template #body="slotProps">
+                <Tag
+                  :value="slotProps.data.inventoryStatus"
+                  :severity="getSeverity(slotProps.data)"
+                />
+              </template>
+            </Column>
+            <Column field="actions" header="Actions" :exportable="false">
+              <template #body>
+                <div class="flex flex-wrap gap-2">
+                  <Button icon="pi pi-pencil" outlined rounded severity="help" />
+                  <Button icon="pi pi-trash" outlined rounded severity="danger" />
+                </div>
+              </template>
+            </Column>
           </div>
-        </template>
-      </Column>
-      <Column header="Agent" style="min-width: 14rem">
-        <template #body="{ data }">
-          <div class="flex items-center gap-2">
-            <span>{{ data.representative.name }}</span>
-          </div>
-        </template>
-      </Column>
-      <Column field="date" header="Date" dataType="date" style="min-width: 10rem">
-        <template #body="{ data }">
-          {{ formatDate(data.date) }}
-        </template>
-      </Column>
-      <Column
-        field="balance"
-        header="Balance"
-        sortable
-        filterField="balance"
-        dataType="numeric"
-        style="min-width: 10rem"
-      >
-        <template #body="{ data }">
-          {{ formatCurrency(data.balance) }}
-        </template>
-      </Column>
-      <Column field="actions" header="Actions" :exportable="false">
-        <template #body="{ data }">
-          <div class="flex flex-wrap gap-2">
-            <Button
-              icon="pi pi-pencil"
-              outlined
-              rounded
-              severity="help"
-              @click="updateData(data)"
-            />
-            <Button icon="pi pi-trash" outlined rounded severity="danger" />
-          </div>
-        </template>
-      </Column>
-      <EditDialog v-if="visible == true" :EditData="EditData" @updateDialog="close" />
-    </DataTable>
+        </DataTable>
+      </div>
+    </div>
   </div>
 </template>
+
+<style scoped>
+.cust {
+  position: relative;
+  top: 100px;
+}
+.fix-width {
+  width: 950px;
+}
+.wi {
+  width: 25%;
+}
+
+@media screen and (max-width: 700px) {
+  .wi {
+    width: 100%;
+  }
+}
+</style>

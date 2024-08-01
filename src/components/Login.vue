@@ -7,10 +7,8 @@
       <div class="text-center">or</div>
       <div class="d-flex justify-content-evenly mt-4">
         <GoogleLogin :callback="callback" />
-        <v-facebook-login app-id="966242223397117" class="no-border fb"></v-facebook-login>
       </div>
     </div>
-    <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
     <div><img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" /><br /><br /></div>
   </div>
 </template>
