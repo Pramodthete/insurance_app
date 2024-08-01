@@ -1,12 +1,11 @@
 <!-- CreateAccount.vue -->
 <template>
   <div class="d-flex gap-3 justify-content-center align-items-center h-100">
-    <!-- {{ msgAgent }} -->
+    {{ msgAgent }}
     <div class="h-100 w-50 object-fit-cover">
       <img id="agent-img" src="./../assets/agent.svg" alt="My Happy SVG" />
     </div>
     <Vueform endpoint="/agent-form/submit" method="post" v-bind="vueform" />
-
   </div>
 </template>
 <script setup>
@@ -32,21 +31,19 @@ const vueform = ref({
       type: 'text',
       rules: ['required'],
       fieldName: 'name',
-      label: 'Full Name',
-     
+      label: 'Full Name'
     },
     email: {
       type: 'text',
       inputType: 'email',
       rules: ['required', 'not_regex: ', 'email'],
       fieldName: 'Email',
-      label: 'Email',
-     
+      label: 'Email'
     },
     user_name: {
       type: 'text',
       label: 'UserName',
-     
+
       rules: ['required']
     },
     password: {
@@ -58,8 +55,7 @@ const vueform = ref({
         'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
       ],
       fieldName: 'Password',
-      label: 'Password',
-      
+      label: 'Password'
     },
     terms: {
       type: 'checkbox',

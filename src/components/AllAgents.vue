@@ -62,30 +62,15 @@ const formatCurrency = (value: {
 }) => {
   return value.toLocaleString('en-US', { style: 'currency', currency: 'INR' })
 }
+
 const getCustomers = (data: any) => {
   return [...(data || [])].map((d) => {
     d.date = new Date(d.date)
+
     return d
   })
 }
-const getSeverity = (status: any) => {
-  switch (status) {
-    case 'unqualified':
-      return 'danger'
 
-    case 'qualified':
-      return 'success'
-
-    case 'new':
-      return 'info'
-
-    case 'negotiation':
-      return 'warn'
-
-    case 'renewal':
-      return null
-  }
-}
 function onRowReorder(event: { dragIndex: any; dropIndex: any }) {
   const { dragIndex, dropIndex } = event
 
@@ -95,7 +80,6 @@ function onRowReorder(event: { dragIndex: any; dropIndex: any }) {
 
   //   cars2.value = cars1.value.filter((car) => car)
 }
-
 const close = (vis: boolean) => {
   visible.value = vis
 }
@@ -120,7 +104,7 @@ const updateData = (data: {}) => {
     >
       <template #header>
         <div class="d-flex flex-wrap justify-content-start gap-5">
-          <h3>Manage Employees</h3>
+          <h3>Manage Insurance Agent</h3>
           <IconField>
             <InputIcon>
               <i class="pi pi-search" />
@@ -173,16 +157,6 @@ const updateData = (data: {}) => {
           {{ formatCurrency(data.balance) }}
         </template>
       </Column>
-      <Column header="Status" field="status" style="min-width: 12rem">
-        <template #body="{ data }">
-          <Tag :value="data.status" :severity="getSeverity(data.status) || undefined" />
-        </template>
-      </Column>
-      <Column field="activity" header="Activity" style="min-width: 12rem">
-        <template #body="{ data }">
-          <ProgressBar :value="data.activity" :showValue="false" style="height: 6px"></ProgressBar>
-        </template>
-      </Column>
       <Column field="actions" header="Actions" :exportable="false">
         <template #body="{ data }">
           <div class="flex flex-wrap gap-2">
@@ -193,13 +167,7 @@ const updateData = (data: {}) => {
               severity="help"
               @click="updateData(data)"
             />
-            <Button
-              icon="pi pi-trash"
-              outlined
-              rounded
-              severity="danger"
-              @click="deleteProduct()"
-            />
+            <Button icon="pi pi-trash" outlined rounded severity="danger" />
           </div>
         </template>
       </Column>

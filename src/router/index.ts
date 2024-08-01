@@ -11,6 +11,7 @@ import CustomerDetail from '../components/CustomerDetail.vue'
 import Signup from '../components/Signup.vue'
 import EmployeeForm from '@/components/EmployeeForm.vue'
 import InsurancePolicies from '@/components/InsurancePolicies.vue'
+import AllAgents from '@/components/AllAgents.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -40,12 +41,12 @@ const router = createRouter({
             {
               path: 'agents',
               name: 'admin-agents',
-              component: AllCustomers
+              component: AllAgents
             },
             {
               path: 'employees',
               name: 'admin-employees',
-              component: AllCustomers
+              component: Employees
             },
             {
               path: 'policies',
@@ -93,6 +94,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/agents',
+      name: 'agents',
+      component: AllAgents
     }
   ]
 })

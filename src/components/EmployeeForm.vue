@@ -2,7 +2,7 @@
 
 <template>
   <div class="d-flex justify-content-center align-items-center h-100">
-    <!-- {{ msg }} -->
+    {{ msg }}
     <div class="h-100 w-50 object-fit-cover">
       <img id="emp-img" src="./../assets/employee.svg" alt="My Happy SVG" />
     </div>
@@ -33,21 +33,19 @@ const vueform = ref({
       type: 'text',
       rules: ['required'],
       fieldName: 'name',
-      label: 'Full Name',
-    
+      label: 'Full Name'
     },
     email: {
       type: 'text',
       inputType: 'email',
       rules: ['required', 'not_regex: ', 'email'],
       fieldName: 'Email',
-      label: 'Email',
-      
+      label: 'Email'
     },
     user_name: {
       type: 'text',
       label: 'UserName',
-     
+
       rules: ['required']
     },
     password: {
@@ -59,8 +57,7 @@ const vueform = ref({
         'regex:^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$'
       ],
       fieldName: 'Password',
-      label: 'Password',
-     
+      label: 'Password'
     },
     terms: {
       type: 'checkbox',
@@ -83,7 +80,6 @@ const vueform = ref({
   width: 300px;
   height: 300px !important;
 }
-
 
 /* #app {
   display: flex;
